@@ -1,0 +1,46 @@
+#include <iostream> // Include the input-output stream library
+using namespace std; // Use the standard namespace
+
+// Function to perform bubble sort on the array
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; ++i) { // Outer loop for the number of passes
+        for (int j = 0; j < n - 1 - i; ++j) { // Inner loop for each pass
+            if (arr[j] > arr[j + 1]) { // If the current element is greater than the next element
+                // Swap arr[j] and arr[j + 1]
+                int temp = arr[j]; // Store the current element in a temporary variable
+                arr[j] = arr[j + 1]; // Assign the next element to the current position
+                arr[j + 1] = temp; // Assign the temporary variable to the next position
+            }
+        }
+    }
+}
+
+// Function to print the array
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; ++i) { // Loop through each element of the array
+        cout << arr[i] << " "; // Print the current element followed by a space
+    }
+    cout << endl; // Print a new line after printing all elements
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: "; // Prompt the user to enter the number of elements
+    cin >> n; // Read the number of elements from the user
+
+    int arr[n]; // Declare an array of size n
+    cout << "Enter the elements of the array: "; // Prompt the user to enter the elements of the array
+    for (int i = 0; i < n; ++i) { // Loop to read each element from the user
+        cin >> arr[i]; // Read the current element
+    }
+
+    cout << "Original array: "; 
+    printArray(arr, n); // Print the original array
+
+    bubbleSort(arr, n); // Sort the array using bubble sort
+
+    cout << "Sorted array: "; 
+    printArray(arr, n); // Print the sorted array
+
+    return 0; // Return 0 to indicate that the program ended successfully
+}
